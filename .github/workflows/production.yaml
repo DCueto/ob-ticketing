@@ -32,6 +32,9 @@ jobs:
       - name: Install pnpm package manager
         run: npm install -g pnpm
 
+      - name: Setup pnpm
+        run: pnpm setup
+
       - name: Install project dependencies
         run: pnpm install
 
