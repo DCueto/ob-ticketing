@@ -64,6 +64,7 @@ jobs:
 
       - name: Setup pnpm for generating global bin directory
         run: |
+          echo "SHELL=/bin/bash" >> $GITHUB_ENV
           pnpm setup
           echo "PNPM_HOME=$HOME/.local/share/pnpm" >> $GITHUB_ENV
           echo "PATH=$PNPM_HOME/bin:$PATH" >> $GITHUB_ENV
