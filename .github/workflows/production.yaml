@@ -62,8 +62,11 @@ jobs:
       - name: Install pnpm package manager
         run: npm install -g pnpm
 
-      # - name: Setup pnpm for generating global bin directory
-      #   run: pnpm setup
+      - name: Setup pnpm for generating global bin directory
+        run: |
+          pnpm setup
+          echo "PNPM_HOME=$HOME/.local/share/pnpm" >> $GITHUB_ENV
+          echo "PATH=$PNPM_HOME/bin:$PATH" >> $GITHUB_ENV
 
       - name: Install Vercel CLI
         run: pnpm install -g vercel
