@@ -57,6 +57,9 @@ jobs:
       - name: Install pnpm package manager
         uses: pnpm/action-setup@v4
         id: pnpm-install
+        with:
+          version: 9.6.0
+          run_install: false
 
       - name: Install Vercel CLI
         run: pnpm add --global vercel
