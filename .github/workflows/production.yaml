@@ -48,8 +48,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install pnpm package manager
+        run: npm install -g pnpm
+
+      - name: Set SHELL environment variable
+        run: echo "SHELL=/bin/bash" >> $GITHUB_ENV
+
+      - name: Setup pnpm for generating global bin directory
+        run: pnpm setup
+
       - name: Install Vercel CLI
-        run: npm install -g vercel
+        run: pnpm install -g vercel
 
       - name: Pull Vercel environment information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
